@@ -41,8 +41,9 @@ jobs:
     
     - name: SMZDMCheckin
       run: |
+        configsJson='${{ secrets.SMZDM_COOKIES }}'
         python3 smzdm.py <<EOF
-        ${{ secrets.SMZDM_COOKIES }}
+        ${configsJson}
         EOF
 
     - name: C189Checkin
