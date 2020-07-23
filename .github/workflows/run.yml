@@ -57,4 +57,4 @@ jobs:
         sleep 1m
         done
 
-        python3 C189Checkin.py
+        python3 tianyi.py
