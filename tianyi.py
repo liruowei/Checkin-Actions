@@ -1,6 +1,5 @@
-import requests, time, re, rsa, json, base64
+import requests, time, re, rsa, json, base64, os
 from urllib import parse
-import os
 
 configsJson = os.environ.get('TIANYI_USERS')
 
@@ -131,6 +130,7 @@ def main():
     for config in configs:
         print('开始:' + config['username'])
         checkin(config['username'],config['password'])
+        time.sleep(10)
 
 
 if __name__ == "__main__":

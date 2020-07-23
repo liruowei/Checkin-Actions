@@ -78,6 +78,7 @@ def main():
             b.check_in()
             b.is_checked()
         b.delete_all_cookies()
+        time.sleep(10)
 
     b.closed()
 
