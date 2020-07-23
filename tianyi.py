@@ -1,16 +1,16 @@
 import requests, time, re, rsa, json, base64
 from urllib import parse
+import os
+
+configsJson = os.environ.get('TIANYI_USERS')
+
+if(configsJson == "" or configsJson == None):
+    configsJson = input("配置：")
+    configs = json.loads(configsJson)
 
 s = requests.Session()
 
-username = ""
-password = ""
-
-if(username == "" or password == ""):
-    username = input("账号：")
-    password = input("密码：")
-
-def main():
+def checkin(username,password):
     login(username, password)
     rand = str(round(time.time()*1000))
     surl = f'https://api.cloud.189.cn/mkt/userSign.action?rand={rand}&clientType=TELEANDROID&version=8.6.3&model=SM-G930K'
@@ -127,6 +127,11 @@ def login(username, password):
     r = s.get(redirect_url)
     return s
     
+def main():
+    for config in configs:
+        print('开始:' + config['username'])
+        checkin(config['username'],config['password'])
+
 
 if __name__ == "__main__":
     main()

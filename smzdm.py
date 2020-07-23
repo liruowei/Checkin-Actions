@@ -6,8 +6,7 @@ import json
 import os
 
 configsJson = os.environ.get('SMZDM_COOKIES')
-print(os.environ)
-print(configsJson)
+
 
 if(configsJson == "" or configsJson == None):
     configsJson = input("配置：")
