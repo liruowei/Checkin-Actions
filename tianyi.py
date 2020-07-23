@@ -5,7 +5,8 @@ configsJson = os.environ.get('TIANYI_USERS')
 
 if(configsJson == "" or configsJson == None):
     configsJson = input("配置：")
-    configs = json.loads(configsJson)
+    
+configs = json.loads(configsJson)
 
 s = requests.Session()
 
