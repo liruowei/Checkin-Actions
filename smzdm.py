@@ -10,9 +10,8 @@ configsJson = os.environ.get('SMZDM_COOKIES')
 
 if(configsJson == "" or configsJson == None):
     configsJson = input("配置：")
-    print(configsJson)
-    configs = json.loads(configsJson)
-    print(configs)
+
+configs = json.loads(configsJson)
 
 class SmzdmSpider():
     def __init__(self):
