@@ -17,20 +17,21 @@ jobs:
 
     - name: Install Python
       run: |
-        sudo apt update && \
+        sudo apt update 
         sudo apt install python3
 
     - name: Install Chrome 
       run: |
-        wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add - && \
-        sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' &&
-        sudo apt update && 
-        sudo apt install google-chrome-stable &&
-        sudo wget https://chromedriver.storage.googleapis.com/84.0.4147.30/chromedriver_linux64.zip &&
-        sudo unzip chromedriver_linux64.zip &&
-        sudo mv chromedriver /usr/bin/chromedriver &&
-        sudo chown root:root /usr/bin/chromedriver &&
-        sudo chmod +x /usr/bin/chromedriver
+        wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+        sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' 
+        sudo apt update 
+        sudo apt install google-chrome-stable 
+        sudo wget https://chromedriver.storage.googleapis.com/84.0.4147.30/chromedriver_linux64.zip 
+        sudo unzip chromedriver_linux64.zip 
+        sudo mv chromedriver /usr/bin/chromedriver 
+        sudo chown root:root /usr/bin/chromedriver 
+        sudo chmod +x /usr/bin/chromedriver 
+        google-chrome -version 
       
     - name: requirements
       run: |
