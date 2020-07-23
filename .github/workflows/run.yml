@@ -43,6 +43,9 @@ jobs:
       env:
         SMZDM_COOKIES: ${{ secrets.SMZDM_COOKIES }}
         BRANCH: gh-pages
+      with:
+        SMZDM_COOKIES: ${{ secrets.SMZDM_COOKIES }}
+        BRANCH: gh-pages
       run: |
         python3 smzdm.py
 
