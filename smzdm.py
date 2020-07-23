@@ -3,10 +3,11 @@ import time
 import multiprocessing
 from selenium.webdriver.chrome.options import Options
 import json
+import os
 
-configsJson = ""
+configsJson = os.environ.get('SMZDM_COOKIES')
 
-if(configsJson == ""):
+if(configsJson == "" or configsJson == None):
     configsJson = input("配置：")
     configs = json.loads(configsJson)
 

@@ -14,6 +14,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    env:
+      SMZDM_COOKIES: ${{ secrets.SMZDM_COOKIES }}
 
     - name: Install Python
       run: |
@@ -41,10 +43,7 @@ jobs:
     
     - name: SMZDMCheckin
       run: |
-        configsJson='${{ secrets.SMZDM_COOKIES }}'
-        python3 smzdm.py <<EOF
-        ${configsJson}
-        EOF
+        python3 smzdm.py
 
     - name: C189Checkin
       run: |
