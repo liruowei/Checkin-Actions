@@ -50,7 +50,7 @@ class SmzdmSpider():
         if '签到领奖' in self.driver.page_source:
             print("未签到")
             return False
-        else
+        else:
             print('已签到')
             return True
 
