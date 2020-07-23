@@ -14,8 +14,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    env:
-      SMZDM_COOKIES: ${{ secrets.SMZDM_COOKIES }}
+      env:
+        SMZDM_COOKIES: ${{ secrets.SMZDM_COOKIES }}
 
     - name: Install Python
       run: |
