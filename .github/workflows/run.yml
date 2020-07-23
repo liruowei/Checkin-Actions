@@ -32,6 +32,8 @@ jobs:
         sudo chown root:root /usr/bin/chromedriver 
         sudo chmod +x /usr/bin/chromedriver 
         google-chrome -version 
+        chromedriver -version
+        whereis chromedriver
       
     - name: requirements
       run: |
