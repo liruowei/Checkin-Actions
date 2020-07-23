@@ -13,7 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2 
+    - uses: actions/checkout@v2
+      env:
+        SMZDM_COOKIES: ${{ secrets.SMZDM_COOKIES }}
+        BRANCH: gh-pages
 
     - name: Install Python
       run: |
@@ -39,9 +42,7 @@ jobs:
       run: |
         pip3 install -r requirements.txt
     
-    - name: SMZDMCheckin
-      with:
-        SMZDM_COOKIES: ${{ secrets.SMZDM_COOKIES }}
+    - name: SMZDMCheckin      
       run: |
         python3 smzdm.py
 
