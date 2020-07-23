@@ -46,7 +46,7 @@ class SmzdmSpider():
         self.driver.find_element_by_xpath('//*[@id="index-head"]/div[3]/div[2]/a').click()
         self.driver.refresh()
     
-    def is_checked:
+    def is_checked(self):
         if '签到领奖' in self.driver.page_source:
             print("未签到")
             return False
