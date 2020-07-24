@@ -8,10 +8,8 @@ if(configsJson == "" or configsJson == None):
     
 configs = json.loads(configsJson)
 
-s = requests.Session()
-
-def checkin(username,password):
-    login(username, password)
+def checkin(s,username,password):    
+    login(s,username, password)
     rand = str(round(time.time()*1000))
     surl = f'https://api.cloud.189.cn/mkt/userSign.action?rand={rand}&clientType=TELEANDROID&version=8.6.3&model=SM-G930K'
     url = f'https://m.cloud.189.cn/v2/drawPrizeMarketDetails.action?taskId=TASK_SIGNIN&activityId=ACT_SIGNIN'
@@ -90,7 +88,7 @@ def rsa_encode(j_rsakey, string):
 def calculate_md5_sign(params):
     return hashlib.md5('&'.join(sorted(params.split('&'))).encode('utf-8')).hexdigest()
 
-def login(username, password):
+def login(s,username, password):
     url = "https://cloud.189.cn/udb/udb_login.jsp?pageId=1&redirectURL=/main.action"
     r = s.get(url)
     captchaToken = re.findall(r"captchaToken' value='(.+?)'", r.text)[0]
@@ -129,8 +127,9 @@ def login(username, password):
     
 def main():
     for config in configs:
+        s = requests.Session()
         print('开始:' + config['username'])
-        checkin(config['username'],config['password'])
+        checkin(s,config['username'],config['password'])
         time.sleep(10)
 
 
