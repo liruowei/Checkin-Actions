@@ -28,6 +28,8 @@ class SmzdmSpider():
 
     def delete_all_cookies(self):
         self.driver.delete_all_cookies()
+        self.driver.refresh()
+        self.driver.implicitly_wait(3)
 
     def open_url(self, url):
         """传入url"""
@@ -48,6 +50,7 @@ class SmzdmSpider():
     def check_in(self):
         self.driver.find_element_by_xpath('//*[@id="index-head"]/div[3]/div[2]/a').click()
         self.driver.refresh()
+        self.driver.implicitly_wait(3)
     
     def is_checked(self):
         if '签到领奖' in self.driver.page_source:
@@ -67,7 +70,7 @@ def main():
     b = SmzdmSpider()
     
     for config in configs:
-        b.open_url("https://www.smzdm.com/")
+        # b.open_url("https://www.smzdm.com/")
         print('开始:' + config['username'])
         items=config.items()       
         for key, value in items:
