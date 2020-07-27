@@ -70,7 +70,7 @@ def main():
     b = SmzdmSpider()
     
     for config in configs:
-        # b.open_url("https://www.smzdm.com/")
+        b.open_url("https://www.smzdm.com/")
         print('开始:' + config['username'])
         items=config.items()       
         for key, value in items:
