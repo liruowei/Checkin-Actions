@@ -22,7 +22,10 @@ jobs:
         chmod -R 777 ./IBM_Cloud_CLI/
         IBM_ACCOUNT=`echo $IBM_INFO | jq .IBM_ACCOUNT -r`
     - name: Login IBM Cloud
+      env:
+        IBM_INFO: ${{secrets.IBM_INFO}}
       run: |
+        IBM_ACCOUNT=`echo $IBM_INFO | jq .IBM_ACCOUNT -r`
         echo $IBM_ACCOUNT
         ./IBM_Cloud_CLI/ibmcloud login <<EOF
         $IBM_ACCOUNT
