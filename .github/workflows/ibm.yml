@@ -23,7 +23,7 @@ jobs:
         chmod -R 777 ./IBM_Cloud_CLI/
         IBM_ACCOUNT=`echo $IBM_INFO | jq .IBM_ACCOUNT -r`
         IBM_APP_NAME=`echo $IBM_INFO | jq .IBM_APP_NAME -r`
-        IBREGION_NUMM_ACCOUNT=`echo $IBM_INFO | jq .REGION_NUM -r`
+        REGION_NUM=`echo $IBM_INFO | jq .REGION_NUM -r`
         RESOURSE_ID=`echo $IBM_INFO | jq .RESOURSE_ID -r`
         ./IBM_Cloud_CLI/ibmcloud login <<EOF
         $IBM_ACCOUNT
