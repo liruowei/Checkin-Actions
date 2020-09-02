@@ -29,12 +29,11 @@ jobs:
         $IBM_ACCOUNT
         $COMMON_PASSWORD
         $REGION_NUM
-        no
-        n
+        no        
         EOF
         ./IBM_Cloud_CLI/ibmcloud target -g "$RESOURSE_ID"
         ./IBM_Cloud_CLI/ibmcloud target --cf
         ./IBM_Cloud_CLI/ibmcloud cf install <<EOF
-        n
+        y
         EOF
         ./IBM_Cloud_CLI/ibmcloud cf restart "$IBM_APP_NAME"
