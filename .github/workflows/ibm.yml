@@ -15,28 +15,23 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Init
+    - name: DO
       env:
         IBM_INFO: ${{secrets.IBM_INFO}}
+        COMMON_PASSWORD: ${{secrets.COMMON_PASSWORD}}
       run: |
         chmod -R 777 ./IBM_Cloud_CLI/
         IBM_ACCOUNT=`echo $IBM_INFO | jq .IBM_ACCOUNT -r`
-    - name: Login IBM Cloud
-      run: |
-        echo $IBM_ACCOUNT
+        IBM_APP_NAME=`echo $IBM_INFO | jq .IBM_APP_NAME -r`
+        IBREGION_NUMM_ACCOUNT=`echo $IBM_INFO | jq .REGION_NUM -r`
+        RESOURSE_ID=`echo $IBM_INFO | jq .RESOURSE_ID -r`
         ./IBM_Cloud_CLI/ibmcloud login <<EOF
         $IBM_ACCOUNT
-        $IBM_PASSWORD
+        $COMMON_PASSWORD
         $REGION_NUM
         no
         EOF
-    - name: Target IBM Cloud
-      run: |
         ./IBM_Cloud_CLI/ibmcloud target -g "$RESOURSE_ID"
         ./IBM_Cloud_CLI/ibmcloud target --cf
         ./IBM_Cloud_CLI/ibmcloud cf install
-    - name: Restart IBM Cloud
-      env:
-        IBM_APP_NAME: ${{ secrets.IBM_APP_NAME }}
-      run: |
         ./IBM_Cloud_CLI/ibmcloud cf restart "$IBM_APP_NAME"
