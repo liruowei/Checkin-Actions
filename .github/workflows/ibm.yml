@@ -29,7 +29,8 @@ jobs:
         $IBM_ACCOUNT
         $COMMON_PASSWORD
         $REGION_NUM
-        no        
+        no      
+        y  
         EOF
         ./IBM_Cloud_CLI/ibmcloud target -g "$RESOURSE_ID"
         ./IBM_Cloud_CLI/ibmcloud target --cf
