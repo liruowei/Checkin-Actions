@@ -21,6 +21,7 @@ jobs:
         COMMON_PASSWORD: ${{secrets.COMMON_PASSWORD}}
       run: |
         chmod -R 777 ./IBM_Cloud_CLI/
+        ./IBM_Cloud_CLI/ibmcloud config --check-version=false
         IBM_ACCOUNT=`echo $IBM_INFO | jq .IBM_ACCOUNT -r`
         IBM_APP_NAME=`echo $IBM_INFO | jq .IBM_APP_NAME -r`
         REGION_NUM=`echo $IBM_INFO | jq .REGION_NUM -r`
@@ -29,12 +30,9 @@ jobs:
         $IBM_ACCOUNT
         $COMMON_PASSWORD
         $REGION_NUM
-        no      
-        y  
+        no        
         EOF
         ./IBM_Cloud_CLI/ibmcloud target -g "$RESOURSE_ID"
         ./IBM_Cloud_CLI/ibmcloud target --cf
-        ./IBM_Cloud_CLI/ibmcloud cf install <<EOF
-        y
-        EOF
+        ./IBM_Cloud_CLI/ibmcloud cf install -f -v 6.15.0
         ./IBM_Cloud_CLI/ibmcloud cf restart "$IBM_APP_NAME"
