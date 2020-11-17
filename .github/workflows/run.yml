@@ -15,6 +15,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       
+    - name: remove git-lfs
+      shell: bash
+      run: |
+        sudo rm /etc/apt/sources.list.d/github_git-lfs.list 
+        sudo rm /etc/apt/sources.list.d/github_git-lfs.list.save
+                
     - name: Install Python
       run: |
         sudo apt update 
