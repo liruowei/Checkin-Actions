@@ -31,9 +31,9 @@ jobs:
         wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
         sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' 
         sudo apt update 
-        sudo wget http://security.ubuntu.com/ubuntu/pool/universe/c/chromium-browser/chromium-browser_73.0.3683.103-0ubuntu1_amd64.deb
+        sudo wget http://security.ubuntu.com/ubuntu/pool/universe/c/chromium-browser/chromium-browser_86.0.4240.75-0ubuntu0.18.04.1_amd64.deb
         sudo dpkg -i google-chrome-stable_current_amd64.deb --fix-missing; apt-get -fy install
-        sudo wget https://chromedriver.storage.googleapis.com/76.0.3809.126/chromedriver_linux64.zip 
+        sudo wget https://chromedriver.storage.googleapis.com/86.0.4240.22/chromedriver_linux64.zip 
         sudo unzip chromedriver_linux64.zip 
         sudo mv chromedriver /usr/bin/chromedriver 
         sudo chown root:root /usr/bin/chromedriver 
