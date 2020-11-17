@@ -28,8 +28,8 @@ jobs:
 
     - name: Install Chrome 
       run: |        
-        sudo wget http://archive.ubuntu.com/ubuntu/pool/universe/c/chromium-browser/chromium-browser_65.0.3325.181-0ubuntu1_amd64.deb
-        sudo dpkg -i chromium-browser_65.0.3325.181-0ubuntu1_amd64.deb ; apt-get -fy install
+        sudo wget http://archive.ubuntu.com/ubuntu/pool/universe/c/chromium-browser/chromium-browser_86.0.4240.75-0ubuntu0.18.04.1_amd64.deb
+        sudo dpkg -i chromium-browser_86.0.4240.75-0ubuntu0.18.04.1_amd64.deb ; sudo apt-get -fy install
         sudo wget https://chromedriver.storage.googleapis.com/86.0.4240.22/chromedriver_linux64.zip 
         sudo unzip chromedriver_linux64.zip 
         sudo mv chromedriver /usr/bin/chromedriver 
